@@ -22,6 +22,10 @@ def base():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
+    form =
+    if request.method == "POST":
+
+
     data = []
     answers = []
 
@@ -38,18 +42,18 @@ def test():
         d.append(d1)
         data.append(catalog[d1])
 
-        qwestion = []
+        question = []
 
-        qwestion.append(catalog[d1].title)
+        question.append(catalog[d1].title)
         id = random.choice(range(1, 89))
         a = [d1]
-        while len(qwestion) != 3 and id not in a:
+        while len(question) != 3 and id not in a:
             a.append(id)
-            qwestion.append(catalog[id].title)
+            question.append(catalog[id].title)
 
 
-        random.shuffle(qwestion)
-        answers.append(qwestion)
+        random.shuffle(question)
+        answers.append(question)
 
     return render_template('test.html', data=data, answers=answers)
 
@@ -66,12 +70,40 @@ def catalog():
 
 
 @app.route("/cons/<int:id>", methods=['GET', 'POST'])
-def starall(id):
+def learn(id):    #не на время
+
+    data = []
+    answers = []
+
+    d = []
+
     db_sess = db_session.create_session()
 
     data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
-    return render_template('starall.html', data=data)
+    for i in range(20):
+        d1 = random.choice(range(1, 89))
+        while d1 in d:
+            d1 = random.choice(range(1, 89))
+        d.append(d1)
+        data.append(catalog[d1])
+
+        question = []
+
+        question.append(catalog[d1].title)
+        id = random.choice(range(1, 89))
+        a = [d1]
+        while len(question) != 3 and id not in a:
+            a.append(id)
+            question.append(catalog[id].title)
+
+
+        random.shuffle(question)
+        answers.append(question)
+
+
+
+    return render_template('learn.html', data=data)
 
 
 if __name__ == "__main__":
