@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect, request
 # from data import db_session
 from data import db_session
 from data.constellations import Constellation
+from data.forms import Answer
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def base():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    form =
+    form = AnswerForm()
     if request.method == "POST":
 
 
