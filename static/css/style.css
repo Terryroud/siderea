@@ -1,0 +1,107 @@
+@import "../fonts/Comfortaa/stylesheet.css";
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    list-style-type: none;
+}
+.nav img{
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+}
+.cons1{
+    max-width: 300px;
+    max-height: 50px;
+}
+.alpha{
+    margin-bottom: 19px;}
+.card{
+    border-radius: 5px;
+    border: 5px solid white;
+    max-width: 400px;
+    max-height: 500px;
+    color: black;
+}
+:root{
+    --dark: #0D0D2B;
+    --white: #FFFFFF;
+    --blue: #3671E9;
+    --purple: #2B076E;
+    --white-rgb: 255,255,255;
+    --main-color: rgb(11, 33, 89);
+}
+.container{
+    max-width: 1100px;
+    margin:auto;
+    padding: 0 20px;
+}
+body{
+    background-color: #2a2a3b;
+    color: #E4E1E6;
+    font-family: "Comfortaa", sans-serif;
+}
+.logoimg{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+.nav{
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    align-items: center;}
+.nav a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav li{
+    margin-right: 20px;
+}
+.header-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: #6a5acd;
+    padding: 30px 20px;
+}
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 20%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 5%;
+    height: 42px;
+    padding: 10px;
+    background: var(--purple);
+    color: black;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

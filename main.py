@@ -65,7 +65,7 @@ def catalog():
     return render_template('catalog.html', catalog=catalog)
 
 
-@app.route("/cons/<int: id>", methods=['GET', 'POST'])
+@app.route("/cons/<int:id>", methods=['GET', 'POST'])
 def starall(id):
     db_sess = db_session.create_session()
 

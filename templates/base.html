@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Syderia</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 
 <body>
     <header>
         <div class="header-container">
             <a class="logo">
-                <img src="../img/constellation.svg" class="logoimg" alt="logo">
+                <img src="{{url_for('static', filename='img/constellation.svg')}}" class="logoimg" alt="logo">
             </a>
             <nav>
                 <ul class="nav">
                     <li><a href="/learn" id="s0">
-                        <img src="../img/copy.svg" alt="">
+                        <img src="{{url_for('static', filename='img/copy.svg')}}" alt="">
                         <h1>Test</h1>
                     </a></li>
-                    <li><a href="/cons" id="s1">
-                        <img src="../img/graduation_1.svg" alt="learn">
-                        <h1>Learn</h1>
+                    <li><a href="/test" id="s1">
+                        <img src="{{url_for('static', filename='img/graduation_1.svg')}}" alt="stars">
+                        <h1>Constellations</h1>
                     </a></li>
-                    <li><a href="/test" id="s2">
-                        <img src="../img/cassiopea.svg" alt="stars">
-                        <h1>Constellation</h1>
+                    <li><a href="/cons" id="s2">
+                        <img src="{{url_for('static', filename='img/cassiopea.svg')}}" alt="learn">
+                        <h1>Learn</h1>
                     </a></li>
                 </ul>
             </nav>
