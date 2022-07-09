@@ -18,7 +18,7 @@ def main():
 
 @app.route("/base")
 def base():
-    return render_template("base.html", title="Yfodfybt")
+    return render_template("base.html", title="base")
 
 
 @app.route("/test", methods=['GET', 'POST'])
@@ -70,7 +70,7 @@ def catalog():
     return render_template('catalog.html', catalog=catalog)
 
 
-@app.route("/cons/<int:id>", methods=['GET', 'POST'])
+@app.route("/learn/<int:id>", methods=['GET', 'POST'])
 def learn(id):    #не на время
 
     data = []
