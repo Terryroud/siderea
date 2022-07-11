@@ -70,8 +70,8 @@ def catalog():
     return render_template('catalog.html', catalog=catalog)
 
 
-@app.route("/learn/<int:id>", methods=['GET', 'POST'])
-def learn(id):    #не на время
+@app.route("/learn", methods=['GET', 'POST'])
+def learn():    #не на время
 
     data = []
     answers = []
@@ -80,27 +80,27 @@ def learn(id):    #не на время
 
     db_sess = db_session.create_session()
 
-    data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
+    # data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
-    for i in range(20):
-        d1 = random.choice(range(1, 89))
-        while d1 in d:
-            d1 = random.choice(range(1, 89))
-        d.append(d1)
-        data.append(catalog[d1])
+    # for i in range(20):
+    #     d1 = random.choice(range(1, 89))
+    #     while d1 in d:
+    #         d1 = random.choice(range(1, 89))
+    #     d.append(d1)
+    #     data.append(catalog[d1])
 
-        question = []
+    #     question = []
 
-        question.append(catalog[d1].title)
-        id = random.choice(range(1, 89))
-        a = [d1]
-        while len(question) != 3 and id not in a:
-            a.append(id)
-            question.append(catalog[id].title)
+    #     question.append(catalog[d1].title)
+    #     id = random.choice(range(1, 89))
+    #     a = [d1]
+    #     while len(question) != 3 and id not in a:
+    #         a.append(id)
+    #         question.append(catalog[id].title)
 
 
-        random.shuffle(question)
-        answers.append(question)
+    #     random.shuffle(question)
+    #     answers.append(question)
 
 
 
