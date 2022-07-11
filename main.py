@@ -1,3 +1,4 @@
+import os
 import random
 
 from flask import Flask, render_template, redirect, request
@@ -23,7 +24,6 @@ api.add_resource(constellations_resource.ProductsListResource, "/api/get/product
 
 def main():
     db_session.global_init("db/hestia_main.db")
-    app.run(host="127.0.0.1", port=5000)
 
 
 @app.route("/base")
@@ -122,3 +122,4 @@ app.add_url_rule('/learn/<int:id>', view_func=learn, methods=['GET', 'POST'])
 
 if __name__ == "__main__":
     main()
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
