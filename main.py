@@ -16,8 +16,8 @@ app.config["SECRET_KEY"] = "fsvfdbfjhfgbff"
 
 api = Api(app)
 
-api.add_resource(constellations_resource.CatalogResource, "/api/get/products/<id>")
-api.add_resource(constellations_resource.CatalogListResource, "/api/get/products")
+api.add_resource(constellations_resource.CatalogResource, "/api/get/cons/<id>")
+api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
@@ -75,7 +75,7 @@ def catalog():
         if form.validate_on_submit():
             data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.title}%")).all()
     if request.method == "GET":
-        data = db_sess.query(Constellation).all()  # запрос всех элементов из таблички
+        data = db_sess.query(Constellation).all()
 
     return render_template('catalog.html', form=form, data=data)
 
