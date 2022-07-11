@@ -1,11 +1,17 @@
 {%extends 'base.html' %}
 
 {% block main %}
-<div class="card">
-    <div class="text">
-        <h2>Aries</h2>
-    <div class="img-card">
-        <img src="" class="cons1" alt="">
+{%for i in catalog%}
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+    <div class="card">
+        <div class="img-card">
+            <img src="{{i.image}}" class="cons-foto" alt="">
+        </div>
+        <div class="text-card">
+            <h2>{{i.title}}</h2></div>
     </div>
-</div>
+{% endfor %}
 {% endblock %}
