@@ -16,8 +16,8 @@ app.config["SECRET_KEY"] = "fsvs-34-dvsdvsdvpoiuytra"
 
 api = Api(app)
 
-api.add_resource(constellations_resource.ProductsResource, "/api/get/products/<id>")
-api.add_resource(constellations_resource.ProductsListResource, "/api/get/products")
+api.add_resource(constellations_resource.CatalogResource, "/api/get/products/<id>")
+api.add_resource(constellations_resource.CatalogListResource, "/api/get/products")
 
 
 
