@@ -7,18 +7,16 @@ from flask_restful import Api
 from data import db_session
 from data.constellations import Constellation
 from data.forms import AnswerForm
+from data.resource import constellations_resource
 
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "fsvs-34-dvsdvsdvpoiuytra"
 
 api = Api(app)
-api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
-api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
-api.add_resource(cuisine_resource.CuisineCategoryResource, "/api/get/cuisine/<category>")
 
-api.add_resource(products_resource.ProductsResource, "/api/get/products/<id>")
-api.add_resource(products_resource.ProductsListResource, "/api/get/products")
+api.add_resource(constellations_resource.ProductsResource, "/api/get/products/<id>")
+api.add_resource(constellations_resource.ProductsListResource, "/api/get/products")
 
 
 
