@@ -21,7 +21,7 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/hestia_main.db")
+    db_session.global_init("db/kringe.db")
 
 
 @app.route("/base")
