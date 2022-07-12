@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "fsvfdbfjhfgbff"
 
-<<<<<<< HEAD
+
 # api = Api(app)
 # api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
 # api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
@@ -23,9 +23,8 @@ app.config["SECRET_KEY"] = "fsvfdbfjhfgbff"
 # api.add_resource(products_resource.ProductsResource, "/api/get/products/<id>")
 # api.add_resource(products_resource.ProductsListResource, "/api/get/products")
 
-=======
 api = Api(app)
->>>>>>> db241f785e97f53f636dfc906e1bfe12201a5677
+# >>>>>>> db241f785e97f53f636dfc906e1bfe12201a5677
 
 api.add_resource(constellations_resource.CatalogResource, "/api/get/cons/<id>")
 api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
