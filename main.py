@@ -12,13 +12,13 @@ app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "fsvs-34-dvsdvsdvpoiuytra"
 
-api = Api(app)
-api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
-api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
-api.add_resource(cuisine_resource.CuisineCategoryResource, "/api/get/cuisine/<category>")
+# api = Api(app)
+# api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
+# api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
+# api.add_resource(cuisine_resource.CuisineCategoryResource, "/api/get/cuisine/<category>")
 
-api.add_resource(products_resource.ProductsResource, "/api/get/products/<id>")
-api.add_resource(products_resource.ProductsListResource, "/api/get/products")
+# api.add_resource(products_resource.ProductsResource, "/api/get/products/<id>")
+# api.add_resource(products_resource.ProductsListResource, "/api/get/products")
 
 
 

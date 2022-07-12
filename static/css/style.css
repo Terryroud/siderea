@@ -136,7 +136,7 @@ form.example::after {
 .learn-cards{
     border-radius: 15px;
     border: 1px solid white;
-    background-color: #BAC3FF;
+    background-color: #6c6c70;
     width: calc(100%/4 - 30px);
     padding: 50px 40px;
     margin: 15px;
