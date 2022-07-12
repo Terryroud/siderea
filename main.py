@@ -31,7 +31,7 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/hestia_main.db")
+    db_session.global_init("db/kringe.db")
 
 
 @app.route("/base")
@@ -70,7 +70,6 @@ def test():
             a.append(id)
             question.append(catalog[id].title)
 
-
         random.shuffle(question)
         answers.append(question)
 
@@ -91,8 +90,9 @@ def catalog():
 
 
 @app.route("/learn/<int:type>", methods=['GET', 'POST'])
-def learn(id):    #не на время
-
+def learn(id):
+    if request.method == "POST":
+        pass
     data = []
     answers = []
 
@@ -118,11 +118,10 @@ def learn(id):    #не на время
             a.append(id)
             question.append(catalog[id].title)
 
-
         random.shuffle(question)
         answers.append(question)
-
-
+        if request.method == "GET":
+            pass
 
     return render_template('learn.html', data=data)
 
