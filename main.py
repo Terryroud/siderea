@@ -86,7 +86,7 @@ def catalog():
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
 
-    return render_template('catalog.html', form=form, data=data)
+    return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
 
 @app.route("/learn/<int:type>", methods=['GET', 'POST'])

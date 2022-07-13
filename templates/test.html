@@ -1,21 +1,22 @@
-{% extends "base.html"%}
+{%extends 'base.html' %}
 
 {% block main %}
+<div class="main">
 <div class="test-box">
 <div class="test-cards">
     <a href="/test1">
     <div class="testcard-text"><h2>Учить созведия северного полушария</h2></div></a>
 </div>
-<div class="learn-cards">
+<div class="test-cards">
     <a href="/test2">
     <div class="testcard-text"><h2>Учить созведия южного полушария</h2></div></a>
 </div>
-    <div class="learn-cards">
+    <div class="test-cards">
     <a href="/test3">
     <div class="testcard-text"><h2>Учить 20 рандомных созвездий</h2></div>
 </a></div>
-<div class="learn-cards">
+<div class="test-cards">
     <a href="/test4">
     <div class="testcard-text"><h2>Учить все созвездия</h2></div></a>
-</div>
+</div></div></div>
 {% endblock %}

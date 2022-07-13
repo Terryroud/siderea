@@ -11,13 +11,18 @@
     color: white;
     list-style-type: none;
 }
-
+.main{
+   padding: 30px 15px;
+}
 .nav img {
     width: 50px;
     height: 50px;
     margin-right: 12px;
 }
-
+.card100500{
+    display: flex;
+    justify-content: space-between;
+}
 .cons-foto {
     max-width: 200px;
     max-height: 50px;
@@ -28,12 +33,13 @@
 }
 
 .card {
-    border-radius: 5px;
+    border-radius: 10px;
     border: 5px solid white;
-    max-width: calc(100%/3);
-    max-height: 200px;
+    width: 400px;
+    height: 450px;
     color: black;
     margin: 15px 20px;
+    background-color: #6c6c70;
 }
 
 .card {
@@ -80,7 +86,7 @@ body {
     align-items: center;
 }
 
-.nav a {
+.nav a{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,12 +105,15 @@ body {
     background-color: #6a5acd;
     padding: 30px 20px;
 }
-
+/* .card-box{
+    display: inline-block;
+    flex-direction: row;
+    max-width: 1120px;
+} */
 form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
     width: 20%;
     background: #f1f1f1;
 }
@@ -144,3 +153,7 @@ form.example::after {
 .learncards-text h2{
     font-weight: bold;
     color: white;}
+.cons-foto{
+    width: 200px;
+    height: 150px;
+}
