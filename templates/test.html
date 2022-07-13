@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-</body>
-</html>
+{% extends "base.html"%}
+
+{% block main %}
+<div class="test-box">
+<div class="test-cards">
+    <a href="/test1">
+    <div class="testcard-text"><h2>Учить созведия северного полушария</h2></div></a>
+</div>
+<div class="learn-cards">
+    <a href="/test2">
+    <div class="testcard-text"><h2>Учить созведия южного полушария</h2></div></a>
+</div>
+    <div class="learn-cards">
+    <a href="/test3">
+    <div class="testcard-text"><h2>Учить 20 рандомных созвездий</h2></div>
+</a></div>
+<div class="learn-cards">
+    <a href="/test4">
+    <div class="testcard-text"><h2>Учить все созвездия</h2></div></a>
+</div>
+{% endblock %}
