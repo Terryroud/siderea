@@ -105,11 +105,6 @@ body {
     background-color: #6a5acd;
     padding: 30px 20px;
 }
-/* .card-box{
-    display: inline-block;
-    flex-direction: row;
-    max-width: 1120px;
-} */
 form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
