@@ -10,8 +10,9 @@
             {%for j in range(3)%}
             {% if j+i < dlina %}
             <div class="card">
-                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="380" height="250">
+                <div class="card-input">
                     <h2>{{data[i+j].title}}</h2>
+                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="300" height="300"></div>
             </div>
             {% endif %}
             {% endfor %}

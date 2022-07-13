@@ -33,7 +33,7 @@
     border-radius: 10px;
     border: 5px solid white;
     width: 400px;
-    height: 250px;
+    height: 450px;
     color: black;
     margin: 15px 20px;
     background-color: #6c6c70;
@@ -42,9 +42,7 @@
 .card {
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
-
 :root {
     --dark: #0D0D2B;
     --white: #FFFFFF;
@@ -144,6 +142,3 @@ form.example::after {
 .learncards-text h2{
     font-weight: bold;
     color: white;}
-/* .cons-foto{/* Ширина области */
-   
-*/
