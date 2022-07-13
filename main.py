@@ -31,38 +31,68 @@ def base():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    data = []
-    answers = []
-
-    d = []
-
     db_sess = db_session.create_session()
 
-    if request.method == "POST":
-        data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
+    if request.method == 'GET':
+        type *= -1
+        if type > 0:
+            timer = 1
+        else:
+            timer = 0
+            type *= -1
 
-    for i in range(20):
-        d1 = random.choice(range(1, 89))
-        while d1 in d:
-            d1 = random.choice(range(1, 89))
-        d.append(d1)
-        data.append(catalog[d1])
+        if type == 4:  # северное полушарие
+            data = db_sess.query(Constellation).filter(Constellation.polusharie == 1).all()
+            answers = getAnswers(data)
 
-        question = []
+        if type == 1:  # южное полушарие
+            data = db_sess.query(Constellation).filter(Constellation.polusharie == 2).all()
+            answers = getAnswers(data)
 
-        question.append(catalog[d1].title)
-        id = random.choice(range(1, 89))
-        a = [d1]
-        while len(question) != 3 and id not in a:
-            a.append(id)
-            question.append(catalog[id].title)
+        if type == 2:  # все созвездия
+            data = db_sess.query(Constellation).all()
+            answers = getAnswers(data)
 
-        random.shuffle(question)
-        answers.append(question)
-        if request.method == "GET":
-            pass
+        if type == 3:  # 20 штук
+            answers = []
+            d = []
+            data = []
+            catalog = db_sess.query(Constellation).all()
 
-    return render_template('learn.html', data=data)
+            for i in range(20):
+                d1 = random.choice(range(1, 89))
+                while d1 in d:
+                    d1 = random.choice(range(1, 89))
+                d.append(d1)
+                data.append(catalog[d1])
+
+                question = []
+
+                question.append(catalog[d1].title)
+                id = random.choice(range(1, 89))
+                a = [d1]
+                while len(question) != 3 and id not in a:
+                    a.append(id)
+                    question.append(catalog[id].id)
+
+                random.shuffle(question)
+                answers.append(question)
+    else:
+
+        data = eval(request.cookies.get(request.form.get('id')))
+        cnt = 0
+        obs = 0
+        for i in data:
+            obs += 1
+            if i == data[i]:
+                cnt += 1
+        prc = cnt / obs
+
+        return redirect(f"/result/{prc}")
+
+    id = random.choice(range(0, 9876543))
+
+    return render_template('test.html', data=data, answers=answers, timer=timer, id=id)
 
 
 @app.route("/catalog", methods=['GET', 'POST'])
@@ -180,6 +210,13 @@ def getcookie():
     if cookies is None:
         return []
     return cookies
+
+
+
+@app.route('/result', methods=['GET'])
+def result():
+
+    return render_template('result.html')
 
 
 app.add_url_rule('/test/<int:id>', view_func=test, methods=['GET', 'POST'])
