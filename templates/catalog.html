@@ -2,16 +2,17 @@
 
 {% block main %}
 <div class="main">
-    <form class="example" action="">
+    <div class="search-form"><form class="example" action="">
         <input type="text" placeholder="Search.." name="search">
-    </form>
+    </form></div>
     {%for i in range(0, dlina, 3)%}
             <div class="card100500">
             {%for j in range(3)%}
             {% if j+i < dlina %}
             <div class="card">
-                    <img src="{{data[i+j].image}}" class="cons-foto" alt="">
+                <div class="card-input">
                     <h2>{{data[i+j].title}}</h2>
+                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="300" height="300"></div>
             </div>
             {% endif %}
             {% endfor %}

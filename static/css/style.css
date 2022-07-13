@@ -11,6 +11,11 @@
     color: white;
     list-style-type: none;
 }
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .main{
    padding: 30px 15px;
 }
@@ -22,14 +27,6 @@
 .card100500{
     display: flex;
     justify-content: space-between;
-}
-.cons-foto {
-    max-width: 200px;
-    max-height: 50px;
-}
-
-.alpha {
-    margin-bottom: 19px;
 }
 
 .card {
@@ -45,10 +42,7 @@
 .card {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
-
 :root {
     --dark: #0D0D2B;
     --white: #FFFFFF;
@@ -109,7 +103,7 @@ form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    width: 20%;
+    width: 500px;
     background: #f1f1f1;
 }
 
@@ -148,7 +142,3 @@ form.example::after {
 .learncards-text h2{
     font-weight: bold;
     color: white;}
-.cons-foto{
-    width: 200px;
-    height: 150px;
-}
