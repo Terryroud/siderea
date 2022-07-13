@@ -13,5 +13,6 @@ class Constellation(SqlAlchemyBase, SerializerMixin):
     polusharie = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     declination = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     ascent = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    alpha = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     info = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     lat = sqlalchemy.Column(sqlalchemy.String, nullable=True)
