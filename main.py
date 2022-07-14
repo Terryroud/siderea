@@ -21,7 +21,7 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init(os.path.join("db", "suka_db.db"))
+    db_session.global_init(os.path.join("db", "qwer.db"))
 
 
 
@@ -183,7 +183,7 @@ def infocons(id):
     db_sess = db_session.create_session()
     data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
-    return render_template('infocons.html', object=data)
+    return render_template('constellation.html', object=data)
 
 
 

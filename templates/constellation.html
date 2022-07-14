@@ -2,9 +2,29 @@
 
 {% block main %}
 <div class="constel">
-    <div class="constel-card">
-        <div></div>
+    <div class="const-title">
+        <h1>
+            {{object.title}}</h1>
+    </div>
+    <div class="const-img"><img src="{{object.image}}" alt=""></div>
+    <div class="const-polush">
+        <h2>Полушарие:</h2>
+        {{object.polusharie}}
+    </div>
+    <div class="const-declination">
+        <h2>Склонение:</h2>{{object.declination}}
+    </div>
+    <div class="const-ascent">
+        <h2>Прямое восхождение:</h2>{{object.ascent}}
+    </div>
+    <div class="const-alpha">
+        <h2>Альфа звезды:</h2>{{object.alpha}}
+    </div>
+    <div class="const-info">
+        <h2>Информация об созвездии:</h2>{{object.info}}
+    </div>
+    <div class="const-lat">
+        <h2>Латинское название:</h2>{{object.lat}}
     </div>
 </div>
-{{object}}
 {% endblock %}

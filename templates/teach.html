@@ -2,20 +2,19 @@
 
 {% block main %}
 <p id="demo"></p>
-<form method="POST">
+<form method="post">
     {%for i in range(dlina) %}
     <div>
         <div>
             <img src="{{data[i].image}}" alt="">
         </div>
         {% for j in range(3) %}
-        <input type="radio" name="choice" onclick="location.href ='/cookie/{{id}}/{{i}}/{{j}}'">{{answer[i][j]}}</br>
         <input type="checkbox"
-            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')">{{answers[i][j]}}<br>
+            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')"><br>
         {% endfor %}
     </div>
     {% endfor %}
-    <input type="submit">
+    <button type="submit" value="{{id}}" id="id" name="id">Send</button>
 </form>
 <script>
     function httpGet(url) {
@@ -25,7 +24,7 @@
     }
 
 
-    var timer = 6 * 60 * 1000
+    var timer = 30 * 60 * 1000
 
     function qwqw() {
         timer -= 1000;

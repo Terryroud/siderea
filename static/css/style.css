@@ -99,6 +99,12 @@ body {
     background-color: #BAC3FF;
     padding: 30px 20px;
 }
+.constel{
+    display: flex;
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
 .example input[type=text] {
     padding: 10px;
     font-size: 17px;

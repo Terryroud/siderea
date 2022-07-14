@@ -2,22 +2,24 @@
 
 {% block main %}
 <div class="main">
-    <div class="search-form"><form class="example" action="">
-        <input type="text" placeholder="Введите название созвездия.." name="search">
-        <button type="submit"></button>
-    </form></div>
+    <div class="search-form">
+        <form class="example" action="" method="post">
+            <input type="text" placeholder="Enter the name of the constellation.." name="search">
+            <button type="submit"></button>
+        </form>
+    </div>
     {%for i in range(0, dlina, 3)%}
-            <div class="card100500">
-            {%for j in range(3)%}
-            {% if j+i < dlina %}
-            <div class="card" onclick="location.href='/constellation/{{data[i+j].id}}'">
-                <div class="card-input">
-                    <h2>{{data[i+j].title}}</h2>
-                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="350" height=350">
-            </div></div>
-            {% endif %}
-            {% endfor %}
-        </div>
-        {% endfor %}
+    <div class="card100500">
+        {%for j in range(3)%}
+        {% if j+i < dlina %} <div class="card" onclick="location.href='/constellation/{{data[i+j].id}}'">
+            <div class="card-input">
+                <h2>{{data[i+j].title}}</h2>
+                <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="350" height=350">
+            </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endfor %}
 </div>
 {% endblock %}
