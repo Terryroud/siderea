@@ -21,7 +21,7 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/main_db.db")
+    db_session.global_init("db/kringe_bd.db")
 
 
 @app.route("/base")
@@ -184,11 +184,10 @@ def getcookie():
 
 
 
-@app.route('/result/<string:result>', methods=['GET'])
-def result(result):
+@app.route('/result', methods=['GET'])
+def result():
 
-
-    return render_template('result.html', res=result)
+    return render_template('result.html')
 
 
 app.add_url_rule('/test/<int:id>', view_func=test, methods=['GET', 'POST'])

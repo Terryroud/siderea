@@ -3,17 +3,18 @@
 {% block main %}
 <div class="main">
     <div class="search-form"><form class="example" action="">
-        <input type="text" placeholder="Search.." name="search">
+        <input type="text" placeholder="Введите название созвездия.." name="search">
+        <button type="submit"></button>
     </form></div>
     {%for i in range(0, dlina, 3)%}
             <div class="card100500">
             {%for j in range(3)%}
             {% if j+i < dlina %}
-            <div class="card">
+            <div class="card" onclick="location.href='/constellation/{{data[i+j].id}}'">
                 <div class="card-input">
                     <h2>{{data[i+j].title}}</h2>
-                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="300" height="300"></div>
-            </div>
+                    <img src="{{data[i+j].image}}" class="cons-foto" alt="" width="300" height="300">
+            </div></div>
             {% endif %}
             {% endfor %}
         </div>
