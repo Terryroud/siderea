@@ -104,7 +104,8 @@ def teach(type):
                 answers.append(question)
     else:
 
-        data = eval(request.cookies.get(request.form.get('id')))
+        id = request.form.get('id')
+        data = getcookie(id)
         cnt = 0
         obs = 0
         for i in data:
@@ -115,7 +116,7 @@ def teach(type):
 
         return redirect(f"/result/{prc}")
 
-    id = random.choice(range(0, 9876543))
+    id = random.choice(range(100000, 98966376543))
     print(list(map(lambda x: x.id, data)))
     print(len(data), len(answers))
     titles = []
@@ -173,9 +174,9 @@ def cookie1(id, vopros, otvet):
     return res
 
 
-@app.route('/getcookie')
-def getcookie():
-    cookies = eval(request.cookies.get('data'))
+@app.route('/getcookie/<int:id>')
+def getcookie(id):
+    cookies = eval(request.cookies.get(id))
     if cookies is None:
         return []
     return cookies
