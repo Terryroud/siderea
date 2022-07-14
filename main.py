@@ -21,7 +21,7 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/kringe_bd_3.db")
+    db_session.global_init("db/qwer.db")
 
 
 
@@ -44,6 +44,7 @@ def catalogg():
             data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.title}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
+
 
     return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
@@ -174,15 +175,19 @@ def getcookie():
     return cookies
 
 
-@app.route("/constellation/<int:id>")
-def infocons():...  #инфа о созвездиях (новые карточки)
+@app.route("/constellation/<int:id>", methods=['GET'])
+def infocons():
+
+    db_sess = db_session.create_session()
+    data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
+
+    return render_template('infocons.html', data=data)
 
 
 
-@app.route('/result', methods=['GET'])
-def result():
-
-    return render_template('result.html')
+@app.route('/result/<string:result>', methods=['GET'])
+def result(result):
+    return render_template('result.html', res=result)
 
 
 app.add_url_rule('/test/<int:id>', view_func=test, methods=['GET', 'POST'])
