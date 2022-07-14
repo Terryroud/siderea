@@ -21,7 +21,8 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/kringe_bd.db")
+    db_session.global_init("db/kringe_bd_3.db")
+
 
 
 @app.route("/base")
@@ -123,11 +124,12 @@ def teach(type):
 
                 question = []
 
-                question.append(catalog[d1].title)
+                question.append(catalog[d1].id)
                 id = random.choice(range(1, 89))
                 a = [d1]
                 while len(question) != 3 and id not in a:
                     a.append(id)
+                    print(id)
                     question.append(catalog[id].id)
 
                 random.shuffle(question)
@@ -146,32 +148,53 @@ def teach(type):
         return redirect(f"/result/{prc}")
 
     id = random.choice(range(0, 9876543))
-
-    return render_template('teach.html', data=data, answers=answers, timer=timer, id=id)
+    print(list(map(lambda x: x.id, data)))
+    print(len(data), len(answers))
+    return render_template('teach.html', data=data, answers=answers, timer=timer, id=id, dlina=len(data))
 
 
 def getAnswers(data):
     answers = []
     for i in data:
         question = []
-        question.append(i.title)
+        question.append(i.id)
         id = random.choice(range(1, 89))
         a = [i.id]
-        while len(question) != 3 and id not in a:
+        while len(question) != 3 or id not in a:
             a.append(id)
-            question.append(data[id].id)
+            question.append(id)
+            id = random.choice(range(1, 89))
+            if len(question) == 3:
+                break
         random.shuffle(question)
         answers.append(question)
+    return answers
 
 
 @app.route('/cookie/<int:id>/<int:vopros>/<int:otvet>')
 def cookie(id, vopros, otvet):
     res = make_response()
     info = {vopros: otvet}
+    if request.cookies.get(str(id)) is not None:
+        it = eval(request.cookies.get(str(id)))
+    else:
+        it = {}
+    for i in it:
+        info[i] = it[i]
+    res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
+    print(info)
+    return res
+
+
+@app.route('/teach/cookie/<int:id>/<int:vopros>/<int:otvet>')
+def cookie1(id, vopros, otvet):
+    res = make_response()
+    info = {vopros: otvet}
     it = eval(request.cookies.get(str(id)))
     for i in it:
         info[i] = it[i]
     res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
+    print(info)
     return res
 
 
