@@ -2,21 +2,27 @@
 
 {% block main %}
 <div class="main">
-<div class="learn-box">
-<div class="learn-cards">
-    <a href="/teach/4">
-    <div class="learncard-text"><h2>Учить созведия северного полушария</h2></div></a>
+    <div class="learn-box">
+        <div class="learn-cards" onclick="location.href='/teach/4'">
+            <div class="learncard-text">
+                <h2>Учить созведия северного полушария</h2>
+            </div>
+        </div>
+        <div class="learn-cards" onclick="location.href='/teach/1'">
+            <div class="learncard-text">
+                <h2>Учить созведия южного полушария</h2>
+            </div>
+        </div>
+        <div class="learn-cards" onclick="location.href='/teach/3'">
+            <div class="learncard-text">
+                <h2>Учить 20 рандомных созвездий</h2>
+            </div>
+        </div>
+        <div class="learn-cards" onclick="location.href='/teach/2'">
+            <div class="learncard-text">
+                <h2>Учить все созвездия</h2>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="learn-cards">
-    <a href="/teach/1">
-    <div class="learncard-text"><h2>Учить созведия южного полушария</h2></div></a>
-</div>
-    <div class="learn-cards">
-    <a href="/teach/3">
-    <div class="learncard-text"><h2>Учить 20 рандомных созвездий</h2></div>
-</a></div>
-<div class="learn-cards">
-    <a href="/teach/2">
-    <div class="learncard-text"><h2>Учить все созвездия</h2></div></a>
-</div></div></div>
 {% endblock %}

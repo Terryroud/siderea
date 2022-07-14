@@ -103,17 +103,23 @@ body {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    width: 500px;
+    min-width: 400px;
     background: #f1f1f1;
     color: black;
+    float: left;
+    height: 42px;
+    border-right: none;
     border-radius: 15px 0 0 15px;
+}
+.learn-cards{
+    cursor: pointer;
 }
 .card-input h2{
    display: inline-block;
-   margin-bottom: 22px;
+   margin-bottom: 18px;
 }
 .search-form{
-    margin-bottom: 22px;
+    margin-bottom: 19px;
 }
 .card-input{
     display: flex;
@@ -124,20 +130,22 @@ body {
 /* Style the submit button */
 .example button {
     height: 42px;
+    min-width: 80px;
     padding: 10px;
-    background: #6a5acd;
     color: black;
+    float: left;
     font-size: 17px;
     border: 1px solid grey;
     border-left: none;
     /* Prevent double borders */
     cursor: pointer;
     border-radius: 0 15px 15px 0;
-    background: url(/static/img/search.svg) top left no-repeat;
+    background: url(/static/img/search.svg) center no-repeat;
+    background-color: #BAC3FF;
 }
 
 form.example button:hover {
-    background: grey;
+    background-color: grey;
 }
 
 form.example::after {
@@ -147,7 +155,6 @@ form.example::after {
 }
 .learn-cards{
     border-radius: 15px;
-    border: 1px solid white;
     background-color: #6c6c70;
     width: calc(100%/4 - 30px);
     padding: 50px 40px;
