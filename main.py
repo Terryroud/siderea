@@ -178,12 +178,12 @@ def getcookie():
 
 
 @app.route("/constellation/<int:id>", methods=['GET'])
-def infocons():
+def infocons(id):
 
     db_sess = db_session.create_session()
     data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
-    return render_template('infocons.html', data=data)
+    return render_template('infocons.html', object=data)
 
 
 
