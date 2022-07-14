@@ -32,39 +32,7 @@ def base():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    data = []
-    answers = []
-
-    d = []
-
-    db_sess = db_session.create_session()
-
-    if request.method == "POST":
-        data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
-
-    catalog = db_sess.query(Constellation).all()
-    for i in range(20):
-        d1 = random.choice(range(1, 89))
-        while d1 in d:
-            d1 = random.choice(range(1, 89))
-        d.append(d1)
-        data.append(catalog[d1])
-
-        question = []
-
-        question.append(catalog[d1].title)
-        id = random.choice(range(1, 89))
-        a = [d1]
-        while len(question) != 3 and id not in a:
-            a.append(id)
-            question.append(catalog[id].title)
-
-        random.shuffle(question)
-        answers.append(question)
-        if request.method == "GET":
-            pass
-
-    return render_template('learn.html', data=data)
+    return render_template('test.html')
 
 
 @app.route("/catalog", methods=['GET', 'POST'])
@@ -204,6 +172,10 @@ def getcookie():
     if cookies is None:
         return []
     return cookies
+
+
+@app.route("/constellation/<int:id>")
+def infocons():...  #инфа о созвездиях (новые карточки)
 
 
 
