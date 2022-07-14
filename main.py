@@ -118,7 +118,14 @@ def teach(type):
     id = random.choice(range(0, 9876543))
     print(list(map(lambda x: x.id, data)))
     print(len(data), len(answers))
-    return render_template('teach.html', data=data, answers=answers, timer=timer, id=id, dlina=len(data))
+    titles = []
+    for i in answers:
+        b = []
+        for j in i:
+            item = db_sess.query(Constellation).filter(Constellation.id==j).all()[0]
+            b.append(item.title)
+        titles.append(b)
+    return render_template('teach.html', data=data, answers=answers, timer=timer, id=id, dlina=len(data), titles=titles)
 
 
 def getAnswers(data):
