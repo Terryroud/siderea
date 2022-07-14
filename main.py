@@ -44,6 +44,7 @@ def catalogg():
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
 
+
     return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
 
@@ -173,15 +174,18 @@ def getcookie():
     return cookies
 
 
-@app.route("/constellation/<int:id>")
-def infocons():...  #инфа о созвездиях (новые карточки)
+@app.route("/constellation/<int:id>", methods=['GET'])
+def infocons():
+
+    db_sess = db_session.create_session()
+    data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
+
+    return render_template('infocons.html', data=data)
 
 
 
 @app.route('/result/<string:result>', methods=['GET'])
 def result(result):
-
-
     return render_template('result.html', res=result)
 
 
