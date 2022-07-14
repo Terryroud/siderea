@@ -18,14 +18,15 @@ def global_init(db_file):
         raise Exception("Необходимо указать файл базы данных.")
 
     conn_str = f'sqlite:///{db_file.strip()}?check_same_thread=False'
-    print("Подключение к базе данных по адресу {conn_str}")
+    print(f"Подключение к базе данных по адресу {conn_str}")
 
-    engine = sa.create_engine(conn_str, echo=False)
+    engine = sa.create_engine(conn_str, echo=False, pool_pre_ping=True)
     __factory = orm.sessionmaker(bind=engine)
 
     from . import __all_models
-
+    print("hgrefddwfegrhtj")
     SqlAlchemyBase.metadata.create_all(engine)
+    print('brgbrgbrgb')
 
 
 def create_session() -> Session:

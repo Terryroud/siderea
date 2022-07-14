@@ -1,6 +1,7 @@
 {%extends 'base.html' %}
 
 {% block main %}
+<p id="demo"></p>
 <form method="POST">
     {%for i in range(dlina) %}
     <div>
@@ -9,7 +10,8 @@
         </div>
         {% for j in range(3) %}
         <input type="radio" name="choice" onclick="location.href ='/cookie/{{id}}/{{i}}/{{j}}'">{{answer[i][j]}}</br>
-        <input type="checkbox" onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')">{{answers[i][j]}}<br>
+        <input type="checkbox"
+            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')">{{answers[i][j]}}<br>
         {% endfor %}
     </div>
     {% endfor %}
@@ -21,5 +23,24 @@
         ht.open("GET", url, false);
         ht.send(null);
     }
+
+
+    var timer = 6 * 60 * 1000
+
+    function qwqw() {
+        timer -= 1000;
+        var minutes = Math.floor(timer / 60000);
+        var seconds = timer / 1000 % 60;
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        document.getElementById('demo').innerHTML = minutes + "m" + " " + seconds + "s";
+    }
+    setInterval(qwqw, 1000);
+
+
 </script>
 {% endblock %}

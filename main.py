@@ -21,12 +21,14 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/qwer.db")
+    db_session.global_init(os.path.join("db", "suka_db.db"))
 
 
 
 @app.route("/base")
 def base():
+    db_sess = db_session.create_session()
+    print(db_sess.query(Constellation).all())
     return render_template("base.html", title="base")
 
 
@@ -44,8 +46,8 @@ def catalogg():
             data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.title}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
-
-
+    data = db_sess.query(Constellation).all()
+    print(data)
     return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
 
