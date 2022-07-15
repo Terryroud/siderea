@@ -43,7 +43,7 @@ def catalogg():
     db_sess = db_session.create_session()
     if request.method == "POST":
         if form.validate_on_submit():
-            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.title}%")).all()
+            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.get('search')}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
     data = db_sess.query(Constellation).all()

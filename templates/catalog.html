@@ -4,7 +4,10 @@
 <div class="main">
     <div class="search-form">
         <form class="example" action="" method="post">
-            <input type="text" placeholder="Enter the name of the constellation.." name="search">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            {{ form.search(placeholder="Enter the name of the constellation.."), type='text'}}
+            <!-- <input type="text" placeholder="Enter the name of the constellation.." name="search"> -->
             <button type="submit"></button>
         </form>
     </div>

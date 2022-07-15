@@ -1,23 +1,23 @@
 {%extends 'base.html' %}
 
 {% block main %}
-{% if timer == 1%}
+{% if timer == 1 %}
 <p id="demo"></p>
 {% endif %}
 <div class="container">
-<form method="post">
+    <h2>Выбери созвездие, находящееся на фотографии</h2>
+<form method="post" action="/result">
     {%for i in range(dlina) %}
     <div class="test-tasks">
             <img src="{{data[i].image}}" alt="">
             <div class="checkbox-box">
         {% for j in range(3) %}
         <div class="card-checkbox">
-        <input type="checkbox" value="{{titles[i][j]}}"
-            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')"><h2 class="text-input-const">{{titles[i][j]}}</h2><br></div>
+        <input type="checkbox" name="choice" value="{{titles[i][j]}}" onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')"><h2 class="text-input-const">{{titles[i][j]}}</h2><br></div>
         {% endfor %}
     </div></div>
     {% endfor %}
-    <button type="submit" value="{{id}}" id="id" name="id">Отправить</button>
+    <div class="button-card"><button type="submit" value="{{id}}" id="id" name="id">Отправить</button></div>
 </form></div>
 <script>
     function httpGet(url) {
