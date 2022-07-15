@@ -11,6 +11,6 @@ class AnswerForm(FlaskForm):
 
 
 class Search(FlaskForm):
-    title = StringField(id='title')
+    search = StringField(id='search')
     submit = SubmitField()
 
