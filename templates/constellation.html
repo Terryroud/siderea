@@ -16,8 +16,14 @@
                     <h2>Прямое восхождение:</h2>{{object.ascent}}
                 </div>
                 <div class="const box-polush">
-                    <h2>Полушарие:</h2>
-                    {{object.polusharie}}
+                    <h2>Расположение:</h2>
+                    {% if object.polusharie == 1 %}
+                    Северное
+                    {% elif object.polusharie == 0 %}
+                    Экваториальное
+                    {% else %}
+                    Южное
+                    {% endif %}
                 </div>
                 <div class="const box-alpha">
                     <h2>Альфа звезды:</h2>{{object.alpha}}

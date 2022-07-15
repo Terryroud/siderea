@@ -14,6 +14,9 @@
 .button-card button:hover{
     background-color: grey;
 }
+.cons-foto{
+    border-radius: 15px;
+}
 .button-card {
     display: flex;
     justify-content: center;
@@ -31,11 +34,16 @@ input:focus::-webkit-input-placeholder {
     display: inline-block;
     max-height: 400px;
 }
-
+.img-float{
+    border-radius: 15px;
+}
 .card-const {
     display: flex;
 }
-
+.learn-img{
+    width: 50px;
+    height: 50px;
+}
 .search-form {
     display: flex;
     justify-content: center;
@@ -48,6 +56,7 @@ input:focus::-webkit-input-placeholder {
 
 .test-tasks img {
     margin-right: 20px;
+    border-radius: 15px;
 }
 
 .nav img {
@@ -66,7 +75,6 @@ input:focus::-webkit-input-placeholder {
     display: inline-block;
     margin: 15px 30px;
 }
-
 button {
     background-color: #BAC3FF;
     color: black;
@@ -78,7 +86,7 @@ button {
 }
 
 .card {
-    border-radius: 10px;
+    border-radius: 15px;
     width: 400px;
     height: 420px;
     color: black;
@@ -139,7 +147,17 @@ body {
     margin-left: 15px;
     display: inline-block;
 }
-
+.demo{
+    font-size: 16px;
+    line-height: 1.2;
+}
+.timer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
 .header-container {
     display: flex;
     justify-content: center;
@@ -157,6 +175,7 @@ body {
     margin: 30px 5px;
     border: 2px solid white;
     padding: 15px 20px;
+    border-radius: 15px;
 }
 
 .checkbox-box input[type="checkbox"] {

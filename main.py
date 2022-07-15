@@ -43,11 +43,9 @@ def catalogg():
     db_sess = db_session.create_session()
     if request.method == "POST":
         if form.validate_on_submit():
-            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.search}%")).all()
+            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.search._value()}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
-    data = db_sess.query(Constellation).all()
-    print(data)
     return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
 
@@ -56,11 +54,12 @@ def learn():
     return render_template('learn.html')
 
 
-@app.route("/teach/<int:type>", methods=['GET', 'POST'])
+@app.route("/teach/<string:type>", methods=['GET', 'POST'])
 def teach(type):
     db_sess = db_session.create_session()
 
     if request.method == 'GET':
+        type = int(type)
         type *= -1
         if type > 0:
             timer = 1
@@ -107,18 +106,16 @@ def teach(type):
                 answers.append(question)
     else:
 
-        id = request.form.get('id')
-        print(id)
-        data = getcookie(id)
+        id, obs = map(int, request.form.get('id').split("/"))
+        print(obs)
+        data = getcookie(str(id))
         cnt = 0
-        obs = 0
         for i in data:
-            obs += 1
-            if i == data[i]:
+            if str(i) == str(data[i]):
                 cnt += 1
-        prc = cnt / obs
-
-        return redirect(f"/result/{prc}")
+        prc = round(cnt / obs * 100, 1)
+        print(data)
+        return redirect(f"/result/{prc}%")
 
     id = random.choice(range(100000, 98966376543))
     print(list(map(lambda x: x.id, data)))
@@ -153,7 +150,7 @@ def getAnswers(data):
 
 @app.route('/cookie/<int:id>/<int:vopros>/<int:otvet>')
 def cookie(id, vopros, otvet):
-    res = make_response()
+    res = make_response(redirect("/result"))
     info = {vopros: otvet}
     if request.cookies.get(str(id)) is not None:
         it = eval(request.cookies.get(str(id)))
@@ -162,7 +159,7 @@ def cookie(id, vopros, otvet):
     for i in it:
         info[i] = it[i]
     res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
-    print(info)
+    
     return res
 
 

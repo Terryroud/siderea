@@ -2,11 +2,11 @@
 
 {% block main %}
 {% if timer == 1 %}
-<p id="demo"></p>
+<div class="timer"><h2 id="demo"></h2></div>
 {% endif %}
 <div class="container">
     <h2>Выбери созвездие, находящееся на фотографии</h2>
-<form method="post" action="/result">
+<form method="post">
     {%for i in range(dlina) %}
     <div class="test-tasks">
             <img src="{{data[i].image}}" alt="">
@@ -17,7 +17,7 @@
         {% endfor %}
     </div></div>
     {% endfor %}
-    <div class="button-card"><button type="submit" value="{{id}}" id="id" name="id">Отправить</button></div>
+    <div class="button-card"><button type="submit" value="{{id}}/{{dlina}}" id="id" name="id">Отправить</button></div>
 </form></div>
 <script>
     function httpGet(url) {

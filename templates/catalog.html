@@ -6,9 +6,8 @@
         <form class="example" action="" method="post">
             {{ form.csrf_token }}
             {{ form.hidden_tag() }}
-            {{ form.search(placeholder="Enter the name of the constellation.."), type='text'}}
-            <!-- <input type="text" placeholder="Enter the name of the constellation.." name="search"> -->
-            <button type="submit"></button>
+            {{ form.search(placeholder='Enter the name of the constellation..', type='text')}}
+            <button class="example"></button>
         </form>
     </div>
     {%for i in range(0, dlina, 3)%}
