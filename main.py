@@ -43,7 +43,7 @@ def catalogg():
     db_sess = db_session.create_session()
     if request.method == "POST":
         if form.validate_on_submit():
-            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.get('search')}%")).all()
+            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.search}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
     data = db_sess.query(Constellation).all()
@@ -144,7 +144,7 @@ def getAnswers(data):
             a.append(id)
             question.append(id)
             id = random.choice(range(1, 89))
-            if len(question) == 4:
+            if len(question) == 3:
                 break
         random.shuffle(question)
         answers.append(question)
