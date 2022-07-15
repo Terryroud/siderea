@@ -37,7 +37,7 @@ def test():
     return render_template('test.html')
 
 
-@app.route("/catalog", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def catalogg():
     form = Search()
     db_sess = db_session.create_session()
@@ -80,30 +80,12 @@ def teach(type):
             answers = getAnswers(data)
 
         if type == 3:  # 20 штук
-            answers = []
-            d = []
-            data = []
             catalog = db_sess.query(Constellation).all()
-
+            data = []
             for i in range(20):
-                d1 = random.choice(range(1, 89))
-                while d1 in d:
-                    d1 = random.choice(range(1, 89))
-                d.append(d1)
-                data.append(catalog[d1])
+                data.append(catalog[random.choice(range(1, 89))])
+            answers = getAnswers(data)
 
-                question = []
-
-                question.append(catalog[d1].id)
-                id = random.choice(range(1, 89))
-                a = [d1]
-                while len(question) != 3 and id not in a:
-                    a.append(id)
-                    print(id)
-                    question.append(catalog[id].id)
-
-                random.shuffle(question)
-                answers.append(question)
     else:
 
         id, obs = map(int, request.form.get('id').split("/"))
@@ -115,7 +97,7 @@ def teach(type):
                 cnt += 1
         prc = round(cnt / obs * 100, 1)
         print(data)
-        return redirect(f"/result/{prc}%")
+        return redirect(f"/result/{prc}%/{id}")
 
     id = random.choice(range(100000, 98966376543))
     print(list(map(lambda x: x.id, data)))
@@ -132,17 +114,17 @@ def teach(type):
 
 def getAnswers(data):
     answers = []
+
     for i in data:
         question = []
         question.append(i.id)
         id = random.choice(range(1, 89))
         a = [i.id]
-        while len(question) != 3 or id not in a:
-            a.append(id)
-            question.append(id)
+        while len(question) != 3:
+            if id not in a:
+                a.append(id)
+                question.append(id)
             id = random.choice(range(1, 89))
-            if len(question) == 3:
-                break
         random.shuffle(question)
         answers.append(question)
     return answers
@@ -195,11 +177,19 @@ def infocons(id):
     return render_template('constellation.html', object=data)
 
 
+@app.route('/result/<string:result>/<int:id>', methods=['GET'])
+def result(result, id):
+    data = getcookie(str(id))
+    db_sess = db_session.create_session()
+    answers = []
+    for i in data:
+        con = db_sess.query(Constellation).filter(Constellation.id == i)
+        if str(i) == str(data[i]):
+            answers.append((con, 1))
+        else:
+            answers.append((con, 0))
 
-@app.route('/result/<string:result>', methods=['GET'])
-def result(result):
-    
-    return render_template('result.html', res=result)
+    return render_template('result.html', res=result, answers=answers)
 
 
 app.add_url_rule('/test/<int:id>', view_func=test, methods=['GET', 'POST'])
@@ -207,5 +197,4 @@ app.add_url_rule('/learn/<int:id>', view_func=learn, methods=['GET', 'POST'])
 
 if __name__ == "__main__":
     main()
-    app.run()
-    # app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
