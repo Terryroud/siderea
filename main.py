@@ -21,11 +21,14 @@ api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 
 
 def main():
-    db_session.global_init("db/qwer.db")
+    db_session.global_init(os.path.join("db", "qwer.db"))
+
 
 
 @app.route("/base")
 def base():
+    db_sess = db_session.create_session()
+    print(db_sess.query(Constellation).all())
     return render_template("base.html", title="base")
 
 
@@ -40,11 +43,9 @@ def catalogg():
     db_sess = db_session.create_session()
     if request.method == "POST":
         if form.validate_on_submit():
-            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.search}%")).all()
+            data = db_sess.query(Constellation).filter(Constellation.title.like(f"%{form.search._value()}%")).all()
     if request.method == "GET":
         data = db_sess.query(Constellation).all()
-
-
     return render_template('catalog.html', form=form, data=data, dlina=len(data))
 
 
@@ -53,11 +54,12 @@ def learn():
     return render_template('learn.html')
 
 
-@app.route("/teach/<int:type>", methods=['GET', 'POST'])
+@app.route("/teach/<string:type>", methods=['GET', 'POST'])
 def teach(type):
     db_sess = db_session.create_session()
 
     if request.method == 'GET':
+        type = int(type)
         type *= -1
         if type > 0:
             timer = 1
@@ -104,17 +106,16 @@ def teach(type):
                 answers.append(question)
     else:
 
-        id = request.form.get('id')
-        data = getcookie(id)
+        id, obs = map(int, request.form.get('id').split("/"))
+        print(obs)
+        data = getcookie(str(id))
         cnt = 0
-        obs = 0
         for i in data:
-            obs += 1
-            if i == data[i]:
+            if str(i) == str(data[i]):
                 cnt += 1
-        prc = cnt / obs
-
-        return redirect(f"/result/{prc}")
+        prc = round(cnt / obs * 100, 1)
+        print(data)
+        return redirect(f"/result/{prc}%")
 
     id = random.choice(range(100000, 98966376543))
     print(list(map(lambda x: x.id, data)))
@@ -149,7 +150,7 @@ def getAnswers(data):
 
 @app.route('/cookie/<int:id>/<int:vopros>/<int:otvet>')
 def cookie(id, vopros, otvet):
-    res = make_response()
+    res = make_response(redirect("/result"))
     info = {vopros: otvet}
     if request.cookies.get(str(id)) is not None:
         it = eval(request.cookies.get(str(id)))
@@ -158,7 +159,7 @@ def cookie(id, vopros, otvet):
     for i in it:
         info[i] = it[i]
     res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
-    print(info)
+    
     return res
 
 
@@ -176,7 +177,10 @@ def cookie1(id, vopros, otvet):
 
 @app.route('/getcookie/<int:id>')
 def getcookie(id):
-    cookies = eval(request.cookies.get(id))
+    if request.cookies.get(id) != None:
+        cookies = eval(request.cookies.get(id))
+    else:
+        cookies = None
     if cookies is None:
         return []
     return cookies
@@ -188,12 +192,13 @@ def infocons(id):
     db_sess = db_session.create_session()
     data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
-    return render_template('infocons.html', object=data)
+    return render_template('constellation.html', object=data)
 
 
 
 @app.route('/result/<string:result>', methods=['GET'])
 def result(result):
+    
     return render_template('result.html', res=result)
 
 

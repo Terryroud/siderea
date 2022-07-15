@@ -11,29 +11,84 @@
     color: white;
     list-style-type: none;
 }
-.search-form{
+.button-card button:hover{
+    background-color: grey;
+}
+.cons-foto{
+    border-radius: 15px;
+}
+.button-card {
+    display: flex;
+    justify-content: center;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.box-title {
+    margin-bottom: 15px;
+}
+
+.text-card {
+    display: inline-block;
+    max-height: 400px;
+}
+.img-float{
+    border-radius: 15px;
+}
+.card-const {
+    display: flex;
+}
+.learn-img{
+    width: 50px;
+    height: 50px;
+}
+.search-form {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.main{
-   padding: 30px 15px;
+
+.main {
+    padding: 30px 15px;
 }
+
+.test-tasks img {
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
 .nav img {
     width: 50px;
     height: 50px;
     margin-right: 12px;
 }
-.card100500{
+
+.card100500 {
     display: flex;
     justify-content: space-between;
 }
 
+.const {
+    text-align: left;
+    display: inline-block;
+    margin: 15px 30px;
+}
+button {
+    background-color: #BAC3FF;
+    color: black;
+    border-radius: 7px;
+    padding: 10px 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 .card {
-    border-radius: 10px;
-    border: 5px solid white;
+    border-radius: 15px;
     width: 400px;
-    height: 450px;
+    height: 420px;
     color: black;
     margin: 15px 20px;
     background-color: #6c6c70;
@@ -42,20 +97,14 @@
 .card {
     display: flex;
     justify-content: center;
-}
-:root {
-    --dark: #0D0D2B;
-    --white: #FFFFFF;
-    --blue: #3671E9;
-    --purple: #2B076E;
-    --white-rgb: 255, 255, 255;
-    --main-color: rgb(11, 33, 89);
+    cursor: pointer;
 }
 
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 0 20px;
+    padding: 30px 50px;
+
 }
 
 body {
@@ -80,7 +129,7 @@ body {
     align-items: center;
 }
 
-.nav a{
+.nav a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,8 +138,25 @@ body {
 .nav li {
     margin-right: 20px;
 }
-.learn-box{
+
+.learn-box {
     display: flex;
+}
+
+.text-input-const {
+    margin-left: 15px;
+    display: inline-block;
+}
+.demo{
+    font-size: 16px;
+    line-height: 1.2;
+}
+.timer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 .header-container {
     display: flex;
@@ -99,31 +165,80 @@ body {
     background-color: #6a5acd;
     padding: 30px 20px;
 }
-form.example input[type=text] {
+
+.img-float {
+    border-radius: 5px;
+}
+
+.test-tasks {
+    display: flex;
+    margin: 30px 5px;
+    border: 2px solid white;
+    padding: 15px 20px;
+    border-radius: 15px;
+}
+
+.checkbox-box input[type="checkbox"] {
+    display: inline-block;
+}
+
+.checkbox-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    width: 500px;
+    min-width: 400px;
     background: #f1f1f1;
+    color: black;
+    float: left;
+    height: 42px;
+    border-right: none;
+    border-radius: 15px 0 0 15px;
+}
+
+.learn-cards {
+    cursor: pointer;
+}
+
+.card-input h2 {
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.search-form {
+    margin-bottom: 19px;
+}
+
+.card-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Style the submit button */
-form.example button {
-    float: left;
-    width: 5%;
+.example button {
     height: 42px;
+    min-width: 80px;
     padding: 10px;
-    background: var(--purple);
     color: black;
+    float: left;
     font-size: 17px;
     border: 1px solid grey;
     border-left: none;
     /* Prevent double borders */
     cursor: pointer;
+    border-radius: 0 15px 15px 0;
+    background: url(/static/img/search.svg) center no-repeat;
+    background-color: #BAC3FF;
 }
 
 form.example button:hover {
-    background: #0b7dda;
+    background-color: grey;
 }
 
 form.example::after {
@@ -131,14 +246,16 @@ form.example::after {
     clear: both;
     display: table;
 }
-.learn-cards{
+
+.learn-cards {
     border-radius: 15px;
-    border: 1px solid white;
     background-color: #6c6c70;
     width: calc(100%/4 - 30px);
     padding: 50px 40px;
     margin: 15px;
 }
-.learncards-text h2{
+
+.learncards-text h2 {
     font-weight: bold;
-    color: white;}
+    color: white;
+}
