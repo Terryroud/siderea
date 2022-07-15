@@ -11,8 +11,15 @@
     color: white;
     list-style-type: none;
 }
-.constel{
-
+.box-title{
+    margin-bottom: 15px;
+}
+.text-card{
+    display: inline-block;
+    max-height: 400px;
+}
+.card-const{
+    display: flex;
 }
 .search-form{
     display: flex;
@@ -21,6 +28,9 @@
 }
 .main{
    padding: 30px 15px;
+}
+.test-tasks img{
+    margin-right: 20px;
 }
 .nav img {
     width: 50px;
@@ -31,8 +41,12 @@
     display: flex;
     justify-content: space-between;
 }
+.const{
+    text-align: left;
+    display: inline-block;
+    margin: 15px 30px;
+}
 button{
-
     background-color: #BAC3FF;
     color: black;
     border-radius: 7px;
@@ -56,19 +70,12 @@ button{
     justify-content: center;
     cursor: pointer;
 }
-:root {
-    --dark: #0D0D2B;
-    --white: #FFFFFF;
-    --blue: #3671E9;
-    --purple: #2B076E;
-    --white-rgb: 255, 255, 255;
-    --main-color: rgb(11, 33, 89);
-}
 
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 20 50px;
+    padding: 30px 50px;
+    
 }
 
 body {
@@ -105,20 +112,32 @@ body {
 .learn-box{
     display: flex;
 }
+.text-input-const{
+    margin-left: 15px;
+    display: inline-block;
+}
 .header-container {
     display: flex;
     justify-content: center;
     position: relative;
-    background-color: #BAC3FF;
+    background-color: #6a5acd;
     padding: 30px 20px;
+}
+.img-float{
+    border-radius: 5px;
 }
 .test-tasks{
     display: flex;
+    margin: 30px 5px;
+    border: 2px solid white;
+    padding: 15px 20px;
+}
+.checkbox-box input[type="checkbox"]{
+    display: inline-block;
 }
 .checkbox-box{
     display: flex;
     flex-direction: column;
-    margin: 15px;
 }
 .example input[type=text] {
     padding: 10px;
