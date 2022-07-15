@@ -140,7 +140,7 @@ def getAnswers(data):
             a.append(id)
             question.append(id)
             id = random.choice(range(1, 89))
-            if len(question) == 3:
+            if len(question) == 4:
                 break
         random.shuffle(question)
         answers.append(question)
