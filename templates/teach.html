@@ -1,21 +1,23 @@
 {%extends 'base.html' %}
 
 {% block main %}
+<!-- {% if timer == 1%} -->
 <p id="demo"></p>
+{% endif %}
+<div class="container">
 <form method="post">
     {%for i in range(dlina) %}
-    <div>
-        <div>
+    <div class="test-tasks">
             <img src="{{data[i].image}}" alt="">
-        </div>
         {% for j in range(3) %}
-        <input type="checkbox"
-            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')"><br>
+        <div class="checkbox-box">
+        <input type="checkbox" value="{{titles[i][j]}}"
+            onclick="httpGet('/cookie/{{id}}/{{data[i].id}}/{{answers[i][j]}}')">{{titles[i][j]}}<br></div>
         {% endfor %}
     </div>
     {% endfor %}
-    <button type="submit" value="{{id}}" id="id" name="id">Send</button>
-</form>
+    <button type="submit" value="{{id}}" id="id" name="id">Отправить</button>
+</form></div>
 <script>
     function httpGet(url) {
         var ht = new XMLHttpRequest();
@@ -24,10 +26,13 @@
     }
 
 
-    var timer = 30 * 60 * 1000
+    var timer = 10 * 1000 * 60;
 
     function qwqw() {
         timer -= 1000;
+        if(timer == 0){
+            document.getElementById('id').click();
+        }
         var minutes = Math.floor(timer / 60000);
         var seconds = timer / 1000 % 60;
         if (seconds < 10) {

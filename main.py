@@ -108,6 +108,7 @@ def teach(type):
     else:
 
         id = request.form.get('id')
+        print(id)
         data = getcookie(id)
         cnt = 0
         obs = 0
@@ -179,7 +180,10 @@ def cookie1(id, vopros, otvet):
 
 @app.route('/getcookie/<int:id>')
 def getcookie(id):
-    cookies = eval(request.cookies.get(id))
+    if request.cookies.get(id) != None:
+        cookies = eval(request.cookies.get(id))
+    else:
+        cookies = None
     if cookies is None:
         return []
     return cookies
@@ -197,6 +201,7 @@ def infocons(id):
 
 @app.route('/result/<string:result>', methods=['GET'])
 def result(result):
+    
     return render_template('result.html', res=result)
 
 
