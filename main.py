@@ -97,7 +97,7 @@ def teach(type):
                 cnt += 1
         prc = round(cnt / obs * 100, 1)
         print(data)
-        return redirect(f"/result/{prc}%")
+        return redirect(f"/result/{prc}")
 
     id = random.choice(range(100000, 98966376543))
     titles = []
@@ -186,4 +186,5 @@ app.add_url_rule('/learn/<int:id>', view_func=learn, methods=['GET', 'POST'])
 
 if __name__ == "__main__":
     main()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run()
+    #app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
