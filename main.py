@@ -100,8 +100,6 @@ def teach(type):
         return redirect(f"/result/{prc}%/{id}")
 
     id = random.choice(range(100000, 98966376543))
-    print(list(map(lambda x: x.id, data)))
-    print(len(data), len(answers))
     titles = []
     for i in answers:
         b = []
