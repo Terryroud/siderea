@@ -97,7 +97,7 @@ def teach(type):
                 cnt += 1
         prc = round(cnt / obs * 100, 1)
         print(data)
-        return redirect(f"/result/{prc}%/{id}")
+        return redirect(f"/result/{prc}%")
 
     id = random.choice(range(100000, 98966376543))
     titles = []
@@ -175,19 +175,10 @@ def infocons(id):
     return render_template('constellation.html', object=data)
 
 
-@app.route('/result/<string:result>/<int:id>', methods=['GET'])
-def result(result, id):
-    data = getcookie(str(id))
-    db_sess = db_session.create_session()
-    answers = []
-    for i in data:
-        con = db_sess.query(Constellation).filter(Constellation.id == i)
-        if str(i) == str(data[i]):
-            answers.append((con, 1))
-        else:
-            answers.append((con, 0))
+@app.route('/result/<string:result>', methods=['GET'])
+def result(result):
 
-    return render_template('result.html', res=result, answers=answers)
+    return render_template('result.html', res=result)
 
 
 app.add_url_rule('/test/<int:id>', view_func=test, methods=['GET', 'POST'])
