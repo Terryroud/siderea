@@ -275,7 +275,8 @@ form.example::after {
 .learn-cards {
     border-radius: 15px;
     background-color: #6c6c70;
-    width: calc(100%/4 - 30px);
+    width: calc(100%/4 - 100px);
+    height: 60px;
     padding: 60px 60px;
     margin: 30px;
 }
