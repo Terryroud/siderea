@@ -161,7 +161,7 @@ body {
 
 .learn-box {
     display: flex;
-    align: center;
+    vertical-align: middle;
 }
 
 .text-input-const {
