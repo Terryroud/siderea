@@ -97,7 +97,7 @@ input:focus::-webkit-input-placeholder {
 }
 button {
     background-color: #BAC3FF;
-    color: yellow;
+    color: black;
     border-radius: 7px;
     padding: 10px 25px;
     cursor: pointer;
@@ -161,6 +161,7 @@ body {
 
 .learn-box {
     display: flex;
+    align: center;
 }
 
 .text-input-const {
