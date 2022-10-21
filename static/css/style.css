@@ -97,7 +97,7 @@ input:focus::-webkit-input-placeholder {
 }
 button {
     background-color: #BAC3FF;
-    color: black;
+    color: yellow;
     border-radius: 7px;
     padding: 10px 25px;
     cursor: pointer;
