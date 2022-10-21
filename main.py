@@ -174,8 +174,8 @@ def infocons(id):
     return render_template('constellation.html', object=data)
 
 
-@app.route('/result/<string:result>', methods=['GET'])
-def result(result):
+@app.route('/result/<float:result>', methods=['GET'])
+def result(result: float):
 
     return render_template('result.html', res=result)
 
