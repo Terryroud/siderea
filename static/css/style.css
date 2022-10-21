@@ -277,8 +277,8 @@ form.example::after {
     border-radius: 15px;
     background-color: #6c6c70;
     width: calc(100%/4 + 50px);
-    padding: 30px 30px;
-    margin: 20px;
+    padding: 60px 60px;
+    margin: 30px;
 }
 
 .learncards-text h2 {
