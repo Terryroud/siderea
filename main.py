@@ -151,6 +151,7 @@ def cookie1(id, vopros, otvet):
         info[i] = it[i]
     res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
     print(info)
+    print(it)
     return res
 
 
