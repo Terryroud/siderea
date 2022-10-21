@@ -276,9 +276,9 @@ form.example::after {
 .learn-cards {
     border-radius: 15px;
     background-color: #6c6c70;
-    width: calc(100%/4 - 30px);
-    padding: 40px 40px;
-    margin: 15px;
+    width: calc(100%/4 + 50px);
+    padding: 30px 30px;
+    margin: 20px;
 }
 
 .learncards-text h2 {
