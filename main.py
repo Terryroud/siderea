@@ -2,7 +2,6 @@ import os
 import random
 
 from flask import Flask, render_template, redirect, request, make_response
-from data import db_session
 from flask_restful import Api
 
 from data import db_session
@@ -12,13 +11,13 @@ from data.resource import constellations_resource
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "fsvfdbfjhfgbff"
+app.config["SECRET_KEY"] = "fff"
 
 api = Api(app)
 
 api.add_resource(constellations_resource.CatalogResource, "/api/get/cons/<id>")
 api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
-
+1
 
 def main():
     db_session.global_init(os.path.join("db", "qwer.db"))
