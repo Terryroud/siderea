@@ -276,7 +276,7 @@ form.example::after {
     border-radius: 15px;
     background-color: #6c6c70;
     width: calc(100%/4 - 100px);
-    height: 60px;
+    height: 200px;
     padding: 60px 60px;
     margin: 30px;
 }
