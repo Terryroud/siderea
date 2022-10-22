@@ -2,13 +2,7 @@
 
 {% block main %}
 <div class="result">
-        {% if res > 80 %}
         <h2>Отлично! Ваш результат: {{res}}%</h2>
-        {% elif res < 50 %}
-        <h2>Ваш результат - {{res}}%. Стоит попробовать еще раз и все получится!)</h2>
-        {% else %}
-        <h2>Ваш результат - {{res}}%. Неплохо, но можно поработать еще!</h2>
-        {% endif %}
         <input type="button" onclick="history.back();" value="Назад"/>
 </div>
 {% endblock %}
