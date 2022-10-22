@@ -19,9 +19,9 @@ api.add_resource(constellations_resource.CatalogResource, "/api/get/cons/<id>")
 api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
 1
 
+
 def main():
     db_session.global_init(os.path.join("db", "qwer.db"))
-
 
 
 @app.route("/base")
@@ -103,7 +103,7 @@ def teach(type):
     for i in answers:
         b = []
         for j in i:
-            item = db_sess.query(Constellation).filter(Constellation.id==j).all()[0]
+            item = db_sess.query(Constellation).filter(Constellation.id == j).all()[0]
             b.append(item.title)
         titles.append(b)
     return render_template('teach.html', data=data, answers=answers, timer=timer, id=id, dlina=len(data), titles=titles)
@@ -138,7 +138,7 @@ def cookie(id, vopros, otvet):
     for i in it:
         info[i] = it[i]
     res.set_cookie(f'{id}', f"{info}", max_age=60 * 60 * 24 * 365 * 2)
-    
+
     return res
 
 
@@ -167,16 +167,14 @@ def getcookie(id):
 
 @app.route("/constellation/<int:id>", methods=['GET'])
 def infocons(id):
-
     db_sess = db_session.create_session()
     data = db_sess.query(Constellation).filter(Constellation.id == id).all()[0].to_dict()
 
     return render_template('constellation.html', object=data)
 
 
-@app.route('/result/<float:result>', methods=['GET'])
-def result(result: float):
-
+@app.route('/result/<string:result>', methods=['GET'])
+def result(result):
     return render_template('result.html', res=result)
 
 
