@@ -1,4 +1,4 @@
-@import "../fonts/Comfortaa/stylesheet.css";
+@import "../fonts/ProximaNova/stylesheet.css";
 
 *,
 *::before,
@@ -130,7 +130,8 @@ button {
 body {
     background-color: #2a2a3b;
     color: #E4E1E6;
-    font-family: "Comfortaa", sans-serif;
+    font-family: "ProximaNova", sans-serif;
+    font-weight: bold;
 }
 
 .logoimg {
