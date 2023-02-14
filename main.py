@@ -17,7 +17,6 @@ api = Api(app)
 
 api.add_resource(constellations_resource.CatalogResource, "/api/get/cons/<id>")
 api.add_resource(constellations_resource.CatalogListResource, "/api/get/cons")
-1
 
 
 def main():
