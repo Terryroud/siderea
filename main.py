@@ -182,4 +182,4 @@ app.add_url_rule('/learn/<int:id>', view_func=learn, methods=['GET', 'POST'])
 
 if __name__ == "__main__":
     main()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(host="localhost", port=int(os.environ.get("PORT", 8080)))
